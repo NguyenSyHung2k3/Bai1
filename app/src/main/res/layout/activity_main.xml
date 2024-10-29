@@ -68,7 +68,26 @@
                 android:hint="Số điện thoại"
                 android:inputType="phone" />
 
-            <!-- Ngày sinh -->
+            <!-- TextView to display selected DOB and trigger CalendarView -->
+            <TextView
+                android:id="@+id/tv_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Date of Birth"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:background="#DDDDDD"
+                android:gravity="center"
+                android:paddingVertical="12dp" />
+
+            <!-- CalendarView for selecting DOB, initially hidden -->
+            <CalendarView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"/>
 
 
             <!-- Nơi ở hiện tại -->

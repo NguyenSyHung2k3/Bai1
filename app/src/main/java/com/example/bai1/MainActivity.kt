@@ -35,10 +35,28 @@ class MainActivity : AppCompatActivity() {
         spProvince = findViewById(R.id.sp_phuong)
         spDistrict = findViewById(R.id.sp_quan)
         spWard = findViewById(R.id.sp_tinh)
-//        tvDob = findViewById(R.id.tv_)
-//        calendarView = findViewById(R.id.calendar_view)
+        tvDob = findViewById(R.id.tv_dob)
+        calendarView = findViewById(R.id.calendar_view)
 
         loadProvinces()
+
+        tvDob.setOnClickListener {
+            if (calendarView.visibility == View.GONE) {
+                calendarView.visibility = View.VISIBLE
+            } else {
+                calendarView.visibility = View.GONE
+            }
+        }
+
+        // Set up a listener for the CalendarView to get the selected date
+        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            // Format and display the selected date
+            val selectedDate = "$dayOfMonth/${month + 1}/$year"
+            tvDob.text = "Date of Birth: $selectedDate"
+
+            // Hide the CalendarView after selection
+            calendarView.visibility = View.GONE
+        }
     }
 
     private fun loadProvinces() {
